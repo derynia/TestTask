@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TestTask</string>
+    <string name="stations">Stations</string>
+    <string name="reports">Reports</string>
+    <string name="enter_supplier">Enter supplier</string>
+    <string name="qty">Qty</string>
+    <string name="sum">Sum</string>
+    <string name="submit">Submit</string>
+    <string name="add_station">Add station</string>
+</resources>
