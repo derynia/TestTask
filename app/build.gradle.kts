@@ -2,8 +2,10 @@ plugins {
     id("com.android.application")
 //    id("com.google.gms.google-services")
     id("dagger.hilt.android.plugin")
+    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
     kotlin("android")
     kotlin("kapt")
+
 }
 
 android {
@@ -76,4 +78,7 @@ dependencies {
     annotationProcessor(Deps.roomCompiler)
     kapt(Deps.roomCompiler)
     implementation(Deps.roomCore)
+
+    // maps
+    implementation(Deps.maps)
 }

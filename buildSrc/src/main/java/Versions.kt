@@ -20,7 +20,11 @@ object Versions {
     const val gradlePlugin = "7.1.3"
     const val kotlin = "1.6.20"
     const val hilt = "2.41"
+    const val secretPluginVersion = "2.0.0"
 
     // room
     const val room = "2.3.0"
+
+    // maps
+    const val mapsVersion = "18.0.2"
 }

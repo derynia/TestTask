@@ -2,6 +2,7 @@
  * To define plugins
  */
 object BuildPlugins {
+    val secretGradle by lazy {"com.google.android.libraries.mapsplatform.secrets-gradle-plugin:secrets-gradle-plugin:${Versions.secretPluginVersion}"}
     val firebase by lazy { "com.google.gms:google-services:${Versions.fireBaseVersion}" }
     val android by lazy { "com.android.tools.build:gradle:${Versions.gradlePlugin}" }
     val kotlin by lazy { "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}" }
@@ -12,6 +13,7 @@ object BuildPlugins {
  * To define dependencies
  */
 object Deps {
+    val maps by lazy { "com.google.android.gms:play-services-maps:${Versions.mapsVersion}"}
     val firebaseBom by lazy {"com.google.firebase:firebase-bom:${Versions.fireBaseBOMVersion}"}
     val analytics by lazy {"com.google.firebase:firebase-analytics-ktx"}
     val viewBinding by lazy {"androidx.databinding:viewbinding:${Versions.viewBinding}"}

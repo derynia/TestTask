@@ -33,6 +33,21 @@
         app:layout_constraintEnd_toStartOf="@id/guidelineName"/>
 
     <TextView
+        android:id="@+id/textAddress"
+        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:textSize="16sp"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:text="@string/address"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textSupplier"
+        app:layout_constraintEnd_toEndOf="parent"
+/>
+
+    <TextView
         android:id="@+id/textQty"
         android:layout_height="wrap_content"
         android:layout_width="0dp"

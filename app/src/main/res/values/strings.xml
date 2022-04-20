@@ -14,5 +14,6 @@
     <string name="sum_required">Sum is required</string>
     <string name="fuel_type">Fuel type</string>
     <string name="cancel">Cancel</string>
+    <string name="address">Address</string>
 
 </resources>

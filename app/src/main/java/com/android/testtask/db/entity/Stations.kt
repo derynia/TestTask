@@ -12,5 +12,8 @@ data class Stations(
     @ColumnInfo(name = "fuelType") var fuelType: FuelType = FuelType.PETROL,
     @ColumnInfo(name = "qty") var qty: Int = 0,
     @ColumnInfo(name = "sum") var sum: Double = 0.0,
+    @ColumnInfo(name = "latitude") var latitude: Double = 0.0,
+    @ColumnInfo(name = "longitude") var longitude: Double = 0.0,
+    @ColumnInfo(name = "address") var address: String = "",
     @ColumnInfo(name = "synced") var synced: Boolean = false
 )

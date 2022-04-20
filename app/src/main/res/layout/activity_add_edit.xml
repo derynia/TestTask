@@ -14,16 +14,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:textSize="20sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_marginStart="10dp"
         android:text="@string/station" />
 
     <TextView
         android:id="@+id/textFuelType"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="10dp"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:labelFor="@id/spinnerFuelType"
         android:text="@string/fuel_type"
         android:textSize="18sp"
@@ -46,8 +46,8 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
         app:endIconMode="custom"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -74,7 +74,7 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
+        android:layout_marginStart="10dp"
         android:layout_marginEnd="16dp"
         app:endIconMode="custom"
         app:layout_constraintHorizontal_chainStyle="spread"
@@ -104,7 +104,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="10dp"
         android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginEnd="10dp"
         app:endIconMode="custom"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintTop_toBottomOf="@id/fieldSupplier"
@@ -126,6 +126,17 @@
             app:hintEnabled="true" />
     </com.google.android.material.textfield.TextInputLayout>
 
+    <fragment
+        xmlns:map="http://schemas.android.com/apk/res-auto"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:id="@+id/mapMain"
+        map:layout_constraintTop_toBottomOf="@id/fieldQty"
+        map:layout_constraintBottom_toTopOf="@id/buttonSubmit"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"/>
+
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonSubmit"
         style="@style/Widget.MaterialComponents.Button.TextButton"
@@ -139,7 +150,7 @@
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/buttonCancel"
-        app:layout_constraintTop_toBottomOf="@id/fieldQty" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonCancel"
@@ -154,6 +165,6 @@
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/buttonSubmit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fieldQty" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

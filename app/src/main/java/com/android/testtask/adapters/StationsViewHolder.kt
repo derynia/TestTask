@@ -19,6 +19,7 @@ class StationsViewHolder(private val binding: CardStationsRecyclerItemBinding) :
             binding.textSupplier.text = station.supplier
             binding.textQty.text = station.qty.toString()
             binding.textSum.text = dec.format(station.sum)
+            binding.textAddress.text = station.address
         }
 
         itemView.setOnClickListener { onItemClick(station) }
