@@ -8,16 +8,27 @@
     tools:context=".AddEditActivity">
 
     <TextView
+        android:id="@+id/textHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="20sp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:text="@string/station" />
+
+    <TextView
         android:id="@+id/textFuelType"
         android:layout_marginTop="24dp"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_marginStart="16dp"
         android:labelFor="@id/spinnerFuelType"
-        android:text="Fuel type"
+        android:text="@string/fuel_type"
         android:textSize="18sp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/textHeader" />
 
     <Spinner
         android:id="@+id/spinnerFuelType"
@@ -51,7 +62,6 @@
             android:hint="@string/enter_supplier"
             android:inputType="text"
             android:paddingStart="5dp"
-            android:focusable="false"
             android:paddingTop="0dp"
             android:paddingEnd="5dp"
             android:paddingBottom="0dp"
@@ -81,7 +91,6 @@
             android:hint="@string/qty"
             android:inputType="numberDecimal"
             android:paddingStart="5dp"
-            android:focusable="false"
             android:paddingTop="0dp"
             android:paddingEnd="5dp"
             android:paddingBottom="0dp"
@@ -111,7 +120,6 @@
             android:hint="@string/sum"
             android:inputType="numberDecimal"
             android:paddingStart="5dp"
-            android:focusable="false"
             android:paddingTop="0dp"
             android:paddingEnd="5dp"
             android:paddingBottom="0dp"
@@ -123,7 +131,7 @@
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
+        android:layout_marginTop="10dp"
         android:text="@string/submit"
         android:textAllCaps="true"
         app:backgroundTint="@color/black"
@@ -131,21 +139,21 @@
         android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toStartOf="@id/buttonCancel"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/fieldQty" />
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonCancel"
         style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
-        android:layout_marginBottom="5dp"
-        android:text="Cancel"
+        android:layout_marginTop="10dp"
+        android:text="@string/cancel"
         android:textAllCaps="true"
         app:backgroundTint="@color/black"
         android:textColor="@color/white"
         app:layout_constraintHorizontal_chainStyle="spread"
         app:layout_constraintStart_toEndOf="@id/buttonSubmit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/fieldQty" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

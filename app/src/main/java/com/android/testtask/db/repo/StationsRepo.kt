@@ -1,5 +1,6 @@
 package com.android.testtask.db.repo
 
+import androidx.lifecycle.LiveData
 import com.android.testtask.db.MainDB
 import com.android.testtask.db.entity.Stations
 import kotlinx.coroutines.flow.Flow
@@ -15,6 +16,8 @@ class StationsRepo @Inject constructor(
     suspend fun insertList(stations: List<Stations>) =  stationsDao.insertList(stations)
 
     fun stationsList() : List<Stations> = stationsDao.stationsList()
+
+    fun stationById(id: Long) : Stations = stationsDao.getById(id)
 
     fun stationsAsFlow() : Flow<List<Stations>> = stationsDao.stationsAsFlow()
 }

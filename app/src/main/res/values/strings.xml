@@ -7,4 +7,12 @@
     <string name="sum">Sum</string>
     <string name="submit">Submit</string>
     <string name="add_station">Add station</string>
+    <string name="station">Station</string>
+    <string name="edit_station">Edit station</string>
+    <string name="supplier_required">Supplier is required</string>
+    <string name="qty_required">Quantity is required</string>
+    <string name="sum_required">Sum is required</string>
+    <string name="fuel_type">Fuel type</string>
+    <string name="cancel">Cancel</string>
+
 </resources>

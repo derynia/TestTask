@@ -1,9 +1,11 @@
 package com.android.testtask
 
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.fragment.app.FragmentActivity
 import com.android.testtask.adapters.ViewPagerFragmentStateAdapter
 import com.android.testtask.databinding.ActivityMainBinding
+import com.android.testtask.viewmodel.StationsViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 

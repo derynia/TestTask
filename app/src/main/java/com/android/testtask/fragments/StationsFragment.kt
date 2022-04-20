@@ -6,34 +6,66 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
+import androidx.lifecycle.Observer
 import com.android.testtask.AddEditActivity
 import com.android.testtask.R
+import com.android.testtask.adapters.StationsAdapter
 import com.android.testtask.databinding.FragmentStationsBinding
+import com.android.testtask.db.entity.Stations
+import com.android.testtask.viewmodel.StationsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class StationsFragment : Fragment(R.layout.fragment_stations) {
     private var _binding: FragmentStationsBinding? = null
     private val binding get() = _binding!!
+    private val stationsViewModel : StationsViewModel by viewModels()
+    private val stationsAdapter = StationsAdapter(
+        { station -> editStation(station) })
+
+    fun editStation(station: Stations) {
+        openAddEdit(station.id)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentStationsBinding.inflate(inflater, container, false)
         val view = binding.root
 
         return view
     }
 
+    override fun onResume() {
+        super.onResume()
+        stationsViewModel.getStations()
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setupViews()
+    }
+
+    fun openAddEdit(id: Long) {
+        val addEditIntent = Intent(context, AddEditActivity::class.java)
+        addEditIntent.putExtra("ID", id)
+        context?.startActivity(addEditIntent)
+    }
+
+    fun setupViews() {
         binding.buttonAdd.setOnClickListener {
-            val addEditIntent = Intent(context, AddEditActivity::class.java)
-            addEditIntent.putExtra("ID", 0)
-            context?.startActivity(addEditIntent)
+            openAddEdit(-1)
         }
+
+        binding.recyclerStations.adapter = stationsAdapter
+        val stationsObserver = Observer<List<Stations>> { newStation ->
+            stationsAdapter.setList(newStation)
+        }
+
+        stationsViewModel.stations.observe(viewLifecycleOwner, stationsObserver)
     }
 
     override fun onDestroyView() {

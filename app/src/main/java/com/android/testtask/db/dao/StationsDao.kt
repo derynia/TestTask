@@ -1,5 +1,6 @@
 package com.android.testtask.db.dao
 
+import androidx.lifecycle.LiveData
 import androidx.room.*
 import com.android.testtask.db.entity.Stations
 import kotlinx.coroutines.flow.Flow
@@ -17,4 +18,7 @@ interface StationsDao {
 
     @Query("SELECT * FROM Stations")
     fun stationsAsFlow() : Flow<List<Stations>>
+
+    @Query("SELECT * FROM Stations WHERE Stations.id = :id")
+    fun getById(id: Long) : Stations
 }
