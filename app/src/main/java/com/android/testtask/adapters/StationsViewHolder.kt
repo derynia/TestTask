@@ -10,9 +10,14 @@ class StationsViewHolder(private val binding: CardStationsRecyclerItemBinding) :
         onButtonClick(station)
     }
 
+    private fun onDeleteClick(station: Stations, onButtonClick: (Stations) -> Unit) {
+        onButtonClick(station)
+    }
+
     fun bind(
         station: Stations,
-        onItemClick : (Stations) -> Unit
+        onItemClick : (Stations) -> Unit,
+        onDeleteClick : (Stations) -> Unit
     )
     {
         with (binding) {
@@ -20,6 +25,9 @@ class StationsViewHolder(private val binding: CardStationsRecyclerItemBinding) :
             binding.textQty.text = station.qty.toString()
             binding.textSum.text = dec.format(station.sum)
             binding.textAddress.text = station.address
+            binding.imageDelete.setOnClickListener{
+                onDeleteClick(station)
+            }
         }
 
         itemView.setOnClickListener { onItemClick(station) }

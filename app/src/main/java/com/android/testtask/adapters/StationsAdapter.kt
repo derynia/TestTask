@@ -7,7 +7,8 @@ import com.android.testtask.databinding.CardStationsRecyclerItemBinding
 import com.android.testtask.db.entity.Stations
 
 class StationsAdapter(
-    private val onItemClick: (Stations) -> Unit
+    private val onItemClick: (Stations) -> Unit,
+    private val onDeleteClick: (Stations) -> Unit
 ) : ListAdapter<Stations, StationsViewHolder>(StationsComparator()) {
 
     fun setList(stations: List<Stations>?) {
@@ -27,6 +28,6 @@ class StationsAdapter(
 
     override fun onBindViewHolder(holder: StationsViewHolder, position: Int) {
         val product = getItem(position)
-        holder.bind(product, onItemClick)
+        holder.bind(product, onItemClick, onDeleteClick)
     }
 }

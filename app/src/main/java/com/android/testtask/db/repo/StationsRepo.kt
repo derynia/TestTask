@@ -19,5 +19,13 @@ class StationsRepo @Inject constructor(
 
     fun stationById(id: Long) : Stations = stationsDao.getById(id)
 
-    fun stationsAsFlow() : Flow<List<Stations>> = stationsDao.stationsAsFlow()
+    fun stationsAsLiveData() : LiveData<List<Stations>> = stationsDao.stationsAsLiveData()
+
+    suspend fun delete(station: Stations) = stationsDao.delete(station)
+
+    suspend fun deleteList(stations: List<Stations>) = stationsDao.deleteList(stations)
+
+    suspend fun update(station: Stations) = stationsDao.update(station)
+
+    suspend fun updateList(stations: List<Stations>) = stationsDao.updateList(stations)
 }

@@ -13,6 +13,7 @@ import com.android.testtask.db.entity.Stations
 import com.android.testtask.utils.STATION_SAVE_ERROR
 import com.android.testtask.utils.showError
 import com.android.testtask.viewmodel.AddEditViewModel
+import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -28,9 +29,9 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
     val viewModel: AddEditViewModel by viewModels()
     private lateinit var spinnerAdapter : ArrayAdapter<FuelType>
     private var currentId: Long = -1
-    private var latitude : Double = 0.0
-    private var longitude : Double= 0.0
-    private var addressStr : String = ""
+    private var currentLatitude : Double = 0.0
+    private var currentLongitude : Double= 0.0
+    private var currentAddressStr : String = ""
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,11 +48,13 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
                 binding.editFieldSupplier.setText(this?.supplier)
                 this?.qty?.let { binding.editFieldQty.setText(it.toString()) }
                 this?.sum?.let { binding.editFieldSum.setText(it.toString()) }
-                this?.longitude?.let { longitude }
-                this?.latitude?.let { longitude }
-                this?.address?.let { address }
+                currentLongitude = this?.longitude ?: 0.0
+                currentLatitude = this?.latitude ?: 0.0
+                currentAddressStr = this?.address ?: ""
+                binding.textAddress.text = currentAddressStr
             }
         }
+        setupMap()
     }
 
     private fun getStationMap() =
@@ -60,9 +63,9 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
             "fuelType" to binding.spinnerFuelType.selectedItem,
             "qty" to binding.editFieldQty.text.toString(),
             "sum" to binding.editFieldSum.text.toString(),
-            "latitude" to latitude,
-            "longitude" to longitude,
-            "address" to addressStr
+            "latitude" to currentLatitude,
+            "longitude" to currentLongitude,
+            "address" to currentAddressStr
         )
 
     private fun setupMap() {
@@ -111,13 +114,12 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
         )
 
         setButtonClickers()
-        setupMap()
     }
 
     fun mapOnClick(point: LatLng) {
-        latitude = point.latitude
-        longitude = point.longitude
-        addressStr = ""
+        currentLatitude = point.latitude
+        currentLongitude = point.longitude
+        currentAddressStr = ""
 
         val geocoder = Geocoder(applicationContext)
         var addresses: List<Address?> = ArrayList()
@@ -134,18 +136,28 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
             for (i in 0..address.maxAddressLineIndex) {
                 sb.append(address.getAddressLine(i) + "\n")
             }
-            addressStr = sb.toString()
+            currentAddressStr = sb.toString()
+            binding.textAddress.text = currentAddressStr
         }
     }
 
     override fun onMapReady(googleMap: GoogleMap) {
-        googleMap.addMarker(
-            MarkerOptions()
-                .position(LatLng(latitude, longitude))
-                .title("Address")
-        )
+        val cPosition = LatLng(currentLatitude, currentLongitude)
+        val mark = MarkerOptions()
+            .position(cPosition)
+            .title("Address")
+
+        googleMap.addMarker(mark)
 
         googleMap.mapType = GoogleMap.MAP_TYPE_NORMAL
+        googleMap.uiSettings.isZoomControlsEnabled = true
         googleMap.setOnMapClickListener { point -> mapOnClick(point) }
+        if (currentLatitude != 0.0 || currentLongitude != 0.0) {
+            googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(cPosition, ZOOM_LEVEL))
+        }
+    }
+
+    companion object {
+        const val ZOOM_LEVEL = 13F
     }
 }

@@ -8,6 +8,7 @@ object Versions {
     const val ktx = "1.7.0"
     const val fireBaseVersion = "4.3.10"
     const val fireBaseBOMVersion = "29.2.1"
+    const val crashLyticsVersion = "2.8.1"
     const val appcompat = "1.4.1"
     const val material = "1.5.0"
     const val constraintLayout = "2.1.3"

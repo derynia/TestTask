@@ -31,7 +31,7 @@ class AddEditViewModel @Inject constructor(
 
     fun initStation(stationId : Long) {
         if (stationId == -1L) {
-            stationLive.postValue(Stations())
+            stationLive.postValue(station)
         } else {
             isEditValue = true
             viewModelScope.launch(Dispatchers.IO) {

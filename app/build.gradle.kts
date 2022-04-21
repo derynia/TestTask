@@ -1,8 +1,9 @@
 plugins {
     id("com.android.application")
-//    id("com.google.gms.google-services")
     id("dagger.hilt.android.plugin")
     id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+    id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
     kotlin("android")
     kotlin("kapt")
 
@@ -56,9 +57,10 @@ dependencies {
     implementation (Deps.materialDesign)
     implementation (Deps.constraintLayout)
 
-//    // Firebase
-//    implementation(platform(Deps.firebaseBom))
-//    implementation(Deps.analytics)
+    // Firebase
+    implementation(platform(Deps.firebaseBom))
+    implementation(Deps.analytics)
+    implementation(Deps.crashLytics)
 
     // Navigation
     implementation (Deps.navigationFragmentKtx)

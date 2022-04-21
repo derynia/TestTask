@@ -15,5 +15,6 @@ data class Stations(
     @ColumnInfo(name = "latitude") var latitude: Double = 0.0,
     @ColumnInfo(name = "longitude") var longitude: Double = 0.0,
     @ColumnInfo(name = "address") var address: String = "",
-    @ColumnInfo(name = "synced") var synced: Boolean = false
+    @ColumnInfo(name = "synced") var synced: Boolean = false,
+    @ColumnInfo(name = "deleted") var deleted: Boolean = false
 )

@@ -22,10 +22,16 @@ class StationsFragment : Fragment(R.layout.fragment_stations) {
     private val binding get() = _binding!!
     private val stationsViewModel : StationsViewModel by viewModels()
     private val stationsAdapter = StationsAdapter(
-        { station -> editStation(station) })
+        { station -> editStation(station) },
+        { station -> deleteStation(station) }
+    )
 
     fun editStation(station: Stations) {
         openAddEdit(station.id)
+    }
+
+    fun deleteStation(station: Stations) {
+        stationsViewModel.delete(station)
     }
 
     override fun onCreateView(

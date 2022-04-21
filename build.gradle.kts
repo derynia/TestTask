@@ -9,6 +9,8 @@ buildscript {
         classpath(BuildPlugins.kotlin)
         classpath(BuildPlugins.hilt)
         classpath(BuildPlugins.secretGradle)
+        classpath(BuildPlugins.firebase)
+        classpath(BuildPlugins.crashLyticsPlugin)
     }
 }
 

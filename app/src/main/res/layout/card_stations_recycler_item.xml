@@ -10,14 +10,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.75" />
+        app:layout_constraintGuide_percent="0.70" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guidelineName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.55" />
+        app:layout_constraintGuide_percent="0.50" />
 
     <TextView
         android:id="@+id/textSupplier"
@@ -73,6 +73,15 @@
         app:layout_constraintStart_toStartOf="@id/guidelineHalf"
         app:layout_constraintEnd_toEndOf="parent"/>
 
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/textSum"
+        android:id="@+id/imageDelete"
+        android:src="@drawable/delete"
+        android:contentDescription="@string/delete"/>
     <View
         android:layout_width="wrap_content"
         android:layout_height="2dp"

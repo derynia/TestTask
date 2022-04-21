@@ -7,7 +7,7 @@ import androidx.room.RoomDatabase
 import com.android.testtask.db.dao.StationsDao
 import com.android.testtask.db.entity.Stations
 
-@Database(entities = [Stations::class], version = 3)
+@Database(entities = [Stations::class], version = 4)
 abstract class MainDB : RoomDatabase() {
     internal abstract fun stationsDao(): StationsDao
 

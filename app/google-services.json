@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "830363028746",
+    "project_id": "trackensure-test-task-edc25",
+    "storage_bucket": "trackensure-test-task-edc25.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:830363028746:android:c5dcc4c59849833fcefef3",
+        "android_client_info": {
+          "package_name": "com.android.testtask"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "830363028746-eckn1j93994uabv7ddvhgbjft80b38il.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjoPRoZmQIwfgD1mQGV4WfbutZACu4kQQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "830363028746-eckn1j93994uabv7ddvhgbjft80b38il.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
