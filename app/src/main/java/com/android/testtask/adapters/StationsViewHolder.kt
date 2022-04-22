@@ -21,11 +21,11 @@ class StationsViewHolder(private val binding: CardStationsRecyclerItemBinding) :
     )
     {
         with (binding) {
-            binding.textSupplier.text = station.supplier
-            binding.textQty.text = station.qty.toString()
-            binding.textSum.text = dec.format(station.sum)
-            binding.textAddress.text = station.address
-            binding.imageDelete.setOnClickListener{
+            textSupplier.text = station.supplier
+            textQty.text = station.qty.toString()
+            textSum.text = dec.format(station.sum)
+            textAddress.text = station.address
+            imageDelete.setOnClickListener{
                 onDeleteClick(station)
             }
         }

@@ -19,7 +19,7 @@ import dagger.hilt.android.AndroidEntryPoint
 @AndroidEntryPoint
 class StationsFragment : Fragment(R.layout.fragment_stations) {
     private var _binding: FragmentStationsBinding? = null
-    private val binding get() = _binding!!
+    private val binding: FragmentStationsBinding get() = _binding!!
     private val stationsViewModel : StationsViewModel by viewModels()
     private val stationsAdapter = StationsAdapter(
         { station -> editStation(station) },
@@ -40,9 +40,8 @@ class StationsFragment : Fragment(R.layout.fragment_stations) {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentStationsBinding.inflate(inflater, container, false)
-        val view = binding.root
 
-        return view
+        return binding.root
     }
 
     override fun onResume() {

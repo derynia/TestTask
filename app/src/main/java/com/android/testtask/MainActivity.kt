@@ -2,17 +2,14 @@ package com.android.testtask
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
-import android.widget.Toast
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.fragment.app.FragmentActivity
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.android.testtask.adapters.ViewPagerFragmentStateAdapter
 import com.android.testtask.databinding.ActivityMainBinding
 import com.android.testtask.db.entity.Stations
 import com.android.testtask.viewmodel.MainViewModel
-import com.android.testtask.viewmodel.StationsViewModel
 import com.google.android.material.tabs.TabLayoutMediator
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -30,6 +27,8 @@ class MainActivity : FragmentActivity() {
         setContentView(binding.root)
 
         setupView()
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
     }
 
     private fun setupView() {

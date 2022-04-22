@@ -19,11 +19,7 @@ import javax.inject.Inject
 class DbSyncService : Service() {
     val TAG = "DBSyncService"
     @Inject lateinit var stationsRepo: StationsRepo
-    val fireDB = Firebase.firestore
-
-    override fun onCreate() {
-        super.onCreate()
-    }
+    private val fireDB = Firebase.firestore
 
     override fun onBind(intent: Intent?): IBinder? = null
 

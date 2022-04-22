@@ -6,7 +6,7 @@ import androidx.recyclerview.widget.ListAdapter
 import com.android.testtask.databinding.CardStationsReportItemBinding
 import com.android.testtask.db.entity.ReportData
 
-class ReportsAdapter() : ListAdapter<ReportData, ReportsViewHolder>(ReportsComparator()) {
+class ReportsAdapter : ListAdapter<ReportData, ReportsViewHolder>(ReportsComparator()) {
 
     fun setList(reportData: List<ReportData>?) {
         reportData?.let {

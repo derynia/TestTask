@@ -17,5 +17,6 @@
     <string name="address">Address</string>
     <string name="delete">delete</string>
     <string name="refresh">Refresh</string>
+    <string name="maps_error">Maps error</string>
 
 </resources>

@@ -22,7 +22,6 @@ import com.google.android.gms.maps.model.MarkerOptions
 import dagger.hilt.android.AndroidEntryPoint
 import java.io.IOException
 
-
 private lateinit var binding: ActivityAddEditBinding
 @AndroidEntryPoint
 class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
@@ -75,7 +74,7 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
     }
 
     private fun setupObserver() {
-        val stationObserver = Observer<Stations> { _ ->
+        val stationObserver = Observer<Stations> {
             bindStationData()
         }
 
@@ -126,7 +125,7 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
         try {
             addresses = geocoder.getFromLocation(point.latitude, point.longitude, 1)
         } catch (e: IOException) {
-            showError(this@AddEditActivity, "Ooops", e.message.toString())
+            showError(this@AddEditActivity, getString(R.string.maps_error), e.message.toString())
         }
 
         val address: Address? = addresses[0]
