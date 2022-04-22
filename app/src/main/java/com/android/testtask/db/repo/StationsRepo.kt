@@ -2,6 +2,7 @@ package com.android.testtask.db.repo
 
 import androidx.lifecycle.LiveData
 import com.android.testtask.db.MainDB
+import com.android.testtask.db.entity.ReportData
 import com.android.testtask.db.entity.Stations
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
@@ -17,9 +18,15 @@ class StationsRepo @Inject constructor(
 
     fun stationsList() : List<Stations> = stationsDao.stationsList()
 
+    fun reportList() : LiveData<List<ReportData>> = stationsDao.reportList()
+
     fun stationById(id: Long) : Stations = stationsDao.getById(id)
 
     fun stationsAsLiveData() : LiveData<List<Stations>> = stationsDao.stationsAsLiveData()
+
+    fun stationsUnsyncedAsLiveData() : LiveData<List<Stations>> = stationsDao.stationsUnsyncedAsLiveData()
+
+    fun stationsUnsynced() : List<Stations> = stationsDao.stationsUnsynced()
 
     suspend fun delete(station: Stations) = stationsDao.delete(station)
 

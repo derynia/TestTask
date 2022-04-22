@@ -61,6 +61,7 @@ dependencies {
     implementation(platform(Deps.firebaseBom))
     implementation(Deps.analytics)
     implementation(Deps.crashLytics)
+    implementation(Deps.fireStore)
 
     // Navigation
     implementation (Deps.navigationFragmentKtx)

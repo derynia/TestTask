@@ -4,14 +4,39 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:name="androidx.navigation.fragment.NavHostFragment"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".fragments.ReportFragment">
+    tools:context=".fragments.StationsFragment">
 
-    <TextView
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/buttonRefresh"
+        style="@style/Widget.MaterialComponents.Button.TextButton"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintTop_toTopOf="parent"
+        android:layout_height="0dp"
+        android:text="@string/refresh"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:textAllCaps="true"
+        app:backgroundTint="@color/black"
+        app:layout_constraintHorizontal_chainStyle="spread"
+        android:textColor="@color/white"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="Report fragment" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerReport"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/buttonRefresh"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:listitem="@layout/card_stations_report_item" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

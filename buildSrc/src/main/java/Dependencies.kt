@@ -18,6 +18,7 @@ object Deps {
     val firebaseBom by lazy {"com.google.firebase:firebase-bom:${Versions.fireBaseBOMVersion}"}
     val analytics by lazy {"com.google.firebase:firebase-analytics-ktx"}
     val crashLytics by lazy {"com.google.firebase:firebase-crashlytics-ktx"}
+    val fireStore by lazy {"com.google.firebase:firebase-firestore-ktx"}
 
     // Core
     val coreKtx by lazy { "androidx.core:core-ktx:${Versions.ktx}" }

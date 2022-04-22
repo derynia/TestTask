@@ -116,7 +116,7 @@ class AddEditActivity : AppCompatActivity(), OnMapReadyCallback {
         setButtonClickers()
     }
 
-    fun mapOnClick(point: LatLng) {
+    private fun mapOnClick(point: LatLng) {
         currentLatitude = point.latitude
         currentLongitude = point.longitude
         currentAddressStr = ""

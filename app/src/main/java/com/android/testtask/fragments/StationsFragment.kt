@@ -26,11 +26,11 @@ class StationsFragment : Fragment(R.layout.fragment_stations) {
         { station -> deleteStation(station) }
     )
 
-    fun editStation(station: Stations) {
+    private fun editStation(station: Stations) {
         openAddEdit(station.id)
     }
 
-    fun deleteStation(station: Stations) {
+    private fun deleteStation(station: Stations) {
         stationsViewModel.delete(station)
     }
 
@@ -55,13 +55,13 @@ class StationsFragment : Fragment(R.layout.fragment_stations) {
         setupViews()
     }
 
-    fun openAddEdit(id: Long) {
+    private fun openAddEdit(id: Long) {
         val addEditIntent = Intent(context, AddEditActivity::class.java)
         addEditIntent.putExtra("ID", id)
         context?.startActivity(addEditIntent)
     }
 
-    fun setupViews() {
+    private fun setupViews() {
         binding.buttonAdd.setOnClickListener {
             openAddEdit(-1)
         }

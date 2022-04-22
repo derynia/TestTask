@@ -16,5 +16,6 @@
     <string name="cancel">Cancel</string>
     <string name="address">Address</string>
     <string name="delete">delete</string>
+    <string name="refresh">Refresh</string>
 
 </resources>

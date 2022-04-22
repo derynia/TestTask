@@ -21,9 +21,7 @@ import javax.inject.Singleton
 class AppModule {
     @Provides
     @Singleton
-    fun getDatabase(@ApplicationContext context: Context): MainDB {
-        return MainDB.getInstance(context)
-    }
+    fun getDatabase(@ApplicationContext context: Context): MainDB = MainDB.getInstance(context)
 
     @Provides
     @Singleton

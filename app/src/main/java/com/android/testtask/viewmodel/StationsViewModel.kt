@@ -21,13 +21,15 @@ class StationsViewModel @Inject constructor(
     }
 
     fun getStations() = stations.addSource(
-        stationsRepo.stationsAsLiveData(), {
+        stationsRepo.stationsAsLiveData()
+    ) {
         stations.value = it
-    })
+    }
 
     fun delete(station: Stations) {
         externalScope.launch {
             station.deleted = true
+            station.synced = false
             stationsRepo.update(station)
         }
     }

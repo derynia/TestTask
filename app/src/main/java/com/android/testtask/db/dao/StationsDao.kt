@@ -2,8 +2,8 @@ package com.android.testtask.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
+import com.android.testtask.db.entity.ReportData
 import com.android.testtask.db.entity.Stations
-import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface StationsDao {
@@ -34,6 +34,18 @@ interface StationsDao {
     @Query("SELECT * FROM Stations WHERE deleted = 0")
     fun stationsAsLiveData() : LiveData<List<Stations>>
 
+    @Query("SELECT * FROM Stations WHERE synced = 0")
+    fun stationsUnsynced() : List<Stations>
+
+    @Query("SELECT * FROM Stations WHERE synced = 0")
+    fun stationsUnsyncedAsLiveData() : LiveData<List<Stations>>
+
     @Query("SELECT * FROM Stations WHERE Stations.id = :id")
     fun getById(id: Long) : Stations
+
+    @Query("SELECT " +
+            "Stations.address AS address, SUM(Stations.qty) AS qty, SUM(Stations.sum) AS sum " +
+            "FROM Stations WHERE Stations.deleted = 0 " +
+            "GROUP BY Stations.address")
+    fun reportList() : LiveData<List<ReportData>>
 }
