@@ -28,4 +28,5 @@ object Versions {
 
     // maps
     const val mapsVersion = "18.0.2"
+    const val locationVersion = "19.0.1"
 }

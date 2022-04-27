@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.android.testtask">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".TestTask"
         android:allowBackup="true"
@@ -20,11 +23,9 @@
 
         <activity
             android:name=".AddEditActivity"
-            android:screenOrientation="portrait"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
-            android:screenOrientation="portrait"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

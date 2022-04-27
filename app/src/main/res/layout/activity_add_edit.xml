@@ -19,132 +19,148 @@
         android:layout_marginStart="10dp"
         android:text="@string/station" />
 
-    <TextView
-        android:id="@+id/textFuelType"
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginStart="10dp"
-        android:labelFor="@id/spinnerFuelType"
-        android:text="@string/fuel_type"
-        android:textSize="18sp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textHeader" />
-
-    <Spinner
-        android:id="@+id/spinnerFuelType"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        app:layout_constraintStart_toEndOf="@id/textFuelType"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="@id/textFuelType" />
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fieldSupplier"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        app:endIconMode="custom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/spinnerFuelType">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editFieldSupplier"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ellipsize="start"
-            android:gravity="center_vertical|start"
-            android:hint="@string/enter_supplier"
-            android:inputType="text"
-            android:paddingStart="5dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="0dp"
-            app:hintEnabled="true" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fieldQty"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="16dp"
-        app:endIconMode="custom"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintEnd_toStartOf="@id/fieldSum"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fieldSupplier">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editFieldQty"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ellipsize="start"
-            android:gravity="center_vertical|start"
-            android:hint="@string/qty"
-            android:inputType="numberDecimal"
-            android:paddingStart="5dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="0dp"
-            app:hintEnabled="true" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/fieldSum"
-        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        android:layout_width="0dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="10dp"
-        app:endIconMode="custom"
-        app:layout_constraintHorizontal_chainStyle="spread"
-        app:layout_constraintTop_toBottomOf="@id/fieldSupplier"
-        app:layout_constraintStart_toEndOf="@id/fieldQty"
-        app:layout_constraintEnd_toEndOf="parent">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/editFieldSum"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:ellipsize="start"
-            android:gravity="center_vertical|start"
-            android:hint="@string/sum"
-            android:inputType="numberDecimal"
-            android:paddingStart="5dp"
-            android:paddingTop="0dp"
-            android:paddingEnd="5dp"
-            android:paddingBottom="0dp"
-            app:hintEnabled="true" />
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <TextView
-        android:id="@+id/textAddress"
-        android:layout_height="wrap_content"
-        android:layout_width="wrap_content"
-        android:layout_marginTop="10dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/fieldQty" />
-
-    <fragment
-        xmlns:map="http://schemas.android.com/apk/res-auto"
-        android:name="com.google.android.gms.maps.SupportMapFragment"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="10dp"
-        android:id="@+id/mapMain"
-        map:layout_constraintTop_toBottomOf="@id/textAddress"
-        map:layout_constraintBottom_toTopOf="@id/buttonSubmit"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"/>
+        android:layout_height="0dp"
+        android:fillViewport="true"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textHeader"
+        app:layout_constraintBottom_toTopOf="@id/buttonSubmit">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textFuelType"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="0dp"
+                android:layout_marginStart="10dp"
+                android:labelFor="@id/spinnerFuelType"
+                android:text="@string/fuel_type"
+                android:textSize="18sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Spinner
+                android:id="@+id/spinnerFuelType"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                app:layout_constraintStart_toEndOf="@id/textFuelType"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/textFuelType" />
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fieldSupplier"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="10dp"
+                app:endIconMode="custom"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/spinnerFuelType">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editFieldSupplier"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/enter_supplier"
+                    android:inputType="text"
+                    android:paddingStart="5dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="0dp"
+                    app:hintEnabled="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fieldQty"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="16dp"
+                app:endIconMode="custom"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintEnd_toStartOf="@id/fieldSum"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fieldSupplier">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editFieldQty"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/qty"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="5dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="0dp"
+                    app:hintEnabled="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fieldSum"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="10dp"
+                app:endIconMode="custom"
+                app:layout_constraintHorizontal_chainStyle="spread"
+                app:layout_constraintTop_toBottomOf="@id/fieldSupplier"
+                app:layout_constraintStart_toEndOf="@id/fieldQty"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/editFieldSum"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:ellipsize="start"
+                    android:gravity="center_vertical|start"
+                    android:hint="@string/sum"
+                    android:inputType="numberDecimal"
+                    android:paddingStart="5dp"
+                    android:paddingTop="0dp"
+                    android:paddingEnd="5dp"
+                    android:paddingBottom="0dp"
+                    app:hintEnabled="true" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/textAddress"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_marginTop="10dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/fieldQty" />
+
+            <fragment
+                xmlns:map="http://schemas.android.com/apk/res-auto"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:id="@+id/mapMain"
+                map:layout_constraintStart_toStartOf="parent"
+                map:layout_constraintTop_toBottomOf="@id/textAddress"
+                map:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="match_parent"
+                android:layout_height="0dp" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
     <com.google.android.material.button.MaterialButton
         android:id="@+id/buttonSubmit"

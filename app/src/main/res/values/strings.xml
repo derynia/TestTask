@@ -18,5 +18,9 @@
     <string name="delete">delete</string>
     <string name="refresh">Refresh</string>
     <string name="maps_error">Maps error</string>
-
+    <string name="ok">OK</string>
+    <string name="geo_permission_denied">Geolocation permission request was denied.</string>
+    <string name="maps_read_error" type="id">Error readind maps</string>
+    <string name="permissions_error">Permissions error</string>
+    <string name="station_save_error">Station save error</string>
 </resources>

@@ -29,10 +29,11 @@ object Deps {
 
     val appCompat by lazy { "androidx.appcompat:appcompat:${Versions.appcompat}" }
     val maps by lazy { "com.google.android.gms:play-services-maps:${Versions.mapsVersion}"}
+    val location by lazy { "com.google.android.gms:play-services-location:${Versions.locationVersion}"}
     val viewBinding by lazy {"androidx.databinding:viewbinding:${Versions.viewBinding}"}
     val materialDesign by lazy { "com.google.android.material:material:${Versions.material}" }
     val constraintLayout by lazy { "androidx.constraintlayout:constraintlayout:${Versions.constraintLayout}" }
-        val navigationFragmentKtx by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" }
+    val navigationFragmentKtx by lazy { "androidx.navigation:navigation-fragment-ktx:${Versions.navigation}" }
     val navigationUiKtx by lazy { "androidx.navigation:navigation-ui-ktx:${Versions.navigation}" }
     val coroutines by lazy { "org.jetbrains.kotlinx:kotlinx-coroutines-android:${Versions.coroutines}" }
 

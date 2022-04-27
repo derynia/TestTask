@@ -84,4 +84,5 @@ dependencies {
 
     // maps
     implementation(Deps.maps)
+    implementation(Deps.location)
 }
