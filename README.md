@@ -1,6 +1,6 @@
-TrackEnsure Test Project
+Test Project. 
 
-Project made according to Test Task
+Project made according to Test Task.
 The project must allow to save refueling data. And make report on it
 
 Make activity with Tab Layout and two Tabs - Reports and Stations (refueling) (swipable)
